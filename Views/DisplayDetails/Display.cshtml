@@ -1,0 +1,76 @@
+﻿<style>
+    .background-image {
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .home-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .home-container {
+        background-color: lightgray;
+    }
+</style>
+
+<body class="background-image">
+    <div class="text-center">
+        <h1 style="font-family:'Trebuchet MS'; text-decoration:underline; text-transform:uppercase" class="display-4">Welcome to the Budget Calculator</h1>
+        <br />
+        <h3 style="color:red; font-family:'Segoe UI'; text-decoration:underline">Your Details:</h3>
+        <h5 class="text-danger">@ViewBag.DisplayError</h5>
+
+        <div class="home-container">
+            <div><h5>Gross Income, Tax, &amp; Basic Expenses:</h5></div>
+            <ul style="list-style-type:none;">
+                @foreach (var disp in ViewBag.UserExp)
+                {
+                    <li>
+                        @disp
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <br />
+
+        <div class="home-container">
+            <div><h5>Property Expenses &amp; Loan Repayment:</h5></div>
+            <ul style="list-style-type:none">
+                @foreach (var disp in ViewBag.PropertyExp)
+                {
+                    <li>
+                        @disp
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <br />
+
+        <div class="home-container">
+            <div><h5>Vehicle Expenses &amp; Loan Repayment:</h5></div>
+            <ul style="list-style-type:none">
+                @foreach (var disp in ViewBag.VehicleExp)
+                {
+                    <li>
+                        @disp
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <br />
+        <p style="color: #d13030">@ViewBag.Warning</p>
+        <div class="home-container">
+            <div><h5>Total:</h5></div>
+            <ul style="list-style-type:none; padding-right:3em">
+                R @ViewBag.Total
+            </ul>
+        </div>
+        <button class="btn btn-primary" asp-controller="BasicInfo" asp-action="Index">CHANGE VALUES</button>
+        <button class="btn btn-primary" asp-action="Options">BACK TO OPTIONS</button>
+        <button class="btn btn-primary" asp-action="Logout">LOGOUT</button>
+    </div>
+</body>

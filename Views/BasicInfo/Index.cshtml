@@ -1,0 +1,73 @@
+﻿<style>
+    .background-image {
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .home-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .home-container {
+        background-color: lightgray;
+    }
+</style>
+
+<body class="background-image">
+    <div class="text-center">
+        <h1 style="font-family:'Trebuchet MS'; text-decoration:underline; text-transform:uppercase" class="display-4">Welcome to the Budget Calculator</h1>
+        <br />
+        <h3 style="color:red; font-family:'Segoe UI'; text-decoration:underline">Please enter the values for the following fields:</h3>
+        <h5 class="text-danger">@ViewBag.InputError</h5>
+        <div class="home-shadow">
+            <div class="home-container">
+                <form asp-action="Index">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div>
+                        <div><h5>Enter Gross Monthly Income (before deductions):</h5></div>
+                        <label name="GrossIncome"></label>
+                        <input name="GrossIncome">
+                    </div>
+                    <br />
+
+                    <div>
+                        <div><h5>Enter Estimated Monthly Tax deducted:</h5></div>
+                        <label name="MonthlyTax"></label>
+                        <input name="MonthlyTax">
+                    </div>
+                    <br />
+
+                    <div><h5>Enter Estimated Monthly Expenditures in each of the following categories -</h5></div>
+
+                    <div>
+                        <label name="Groceries">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Groceries (R):</label>
+                        <input name="Groceries">
+                    </div>
+                    <div>
+                        <label name="WaterLights">&emsp;&emsp;&emsp;Water and Lights (R):</label>
+                        <input name="WaterLights">
+                    </div>
+                    <div>
+                        <label name="TravelCosts">Travel Costs (incl. petrol) (R):</label>
+                        <input name="TravelCosts">
+                    </div>
+                    <div>
+                        <label name="PhoneCosts">Cellphone &amp; Telephone (R):</label>
+                        <input name="PhoneCosts">
+                    </div>
+                    <div>
+                        <label name="OtherCosts">&emsp;&emsp;&emsp;&emsp;Other Expenses (R): </label>
+                        <input name="OtherCosts">
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <input type="submit" value="CONTINUE" class="btn btn-primary" />
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,35 @@
+﻿@model BudgetWebApp19010155.Models.LoginInfo
+
+@{
+    ViewData["Title"] = "Register";
+}
+<style>
+    .background-image {
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+</style>
+
+<h1>Register</h1>
+<hr />
+<body class="background-image">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label name="Username" class="control-label">Username</label>
+                    <input name="Username" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label name="Password" class="control-label">Password</label>
+                    <input name="Password" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="REGISTER" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

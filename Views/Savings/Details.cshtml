@@ -1,0 +1,42 @@
+﻿<style>
+    .background-image {
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .home-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .home-container {
+        background-color: lightgray;
+    }
+</style>
+
+<body class="background-image">
+    <div class="text-center">
+        <h1 style="font-family:'Trebuchet MS'; text-decoration:underline; text-transform:uppercase" class="display-4">Welcome to the Budget Calculator</h1>
+        <br />
+        <h3 style="color:red; font-family:'Segoe UI'; text-decoration:underline">Your Savings Details:</h3>
+        <h5 class="text-danger">@ViewBag.SavingsDisplayError</h5>
+
+        <div class="home-container">
+            <ul style="list-style-type:none; padding-right:4em">
+                @foreach (var disp in ViewBag.Save)
+                {
+                    <li>
+                        @disp
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <br />
+        <form>
+            <button class="btn btn-primary" asp-controller="Savings" asp-action="Index">CHANGE VALUES</button>
+            <button class="btn btn-primary" asp-controller="BasicInfo" asp-action="Options">BACK TO OPTIONS</button>
+            <button class="btn btn-primary" asp-action="Logout">LOGOUT</button>
+        </form>
+    </div>
+</body>

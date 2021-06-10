@@ -1,0 +1,79 @@
+﻿@model BudgetWebApp19010155.Models.VehicleInfo;
+
+<style>
+    .background-image {
+        background-image: url(background.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .home-shadow {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .home-container {
+        background-color: lightgray;
+    }
+
+</style>
+
+<body class="background-image">
+    <div class="text-center">
+        <h1 style="font-family:'Trebuchet MS'; text-decoration:underline; text-transform:uppercase" class="display-4">Welcome to the Budget Calculator</h1>
+        <br />
+        <h3 style="color:red; font-family:'Segoe UI'; text-decoration:underline">Please enter the values for the following fields:</h3>
+        <h5 class="text-danger">@ViewBag.VehicleError</h5>
+        <div class="home-shadow">
+            <div class="home-container">
+                <form asp-action="Index">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div>
+                        <div><h5>Buying a Vehicle:</h5></div>
+                        <label>
+                            Model and Make:
+                            <input name="Model">
+                        </label>
+
+                        <br />
+
+                        <label>
+                            Purchase Price (R):
+                            <input name="PurPrice">
+                        </label>
+
+                        <br />
+
+                        <label>
+                            Total Deposit (R):
+                            <input name="Deposit">
+                        </label>
+
+                        <br />
+
+                        <label>
+                            Interest Rate (%):
+                            <input name="IntRate">
+                        </label>
+
+                        <br />
+
+                        <label style="padding-right:7em">
+                            Estimated Insurance Premium (R):
+                            <input name="Premium">
+                        </label>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="DISPLAY DETAILS" class="btn btn-primary" />
+                        <input type="reset" value="RESET" class="btn btn-primary" />
+                        <button class="btn btn-primary" asp-controller="Property" asp-action="Index">PREVIOUS</button>
+                        <button class="btn btn-primary" asp-action="Logout">LOGOUT</button>
+                    </div>
+                    <br />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
